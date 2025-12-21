@@ -48,11 +48,13 @@ body{
 }
 
 .p-bar{
+    display: flex;
     position: absolute;
+    transform: translateX(33.333%);
     width: 60vw;
     height: 1.5vh;
     border-radius: 0.2rem;
-    margin-left: 25%;
+    margin-top: 10rem;
 }
 
 .p-bar .event{

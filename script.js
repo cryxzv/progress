@@ -19,6 +19,7 @@ let txmon = textR[3]
 let txchr = textR[4]
 let txapr = textR[5]
 let txleap = textR[6]
+let startbtn = document.getElementById("start")
 
 function updateMin(){    
     const d = new Date();
@@ -42,6 +43,16 @@ function updateTmr(){
     evtmr.style.width = ((hours*60 + minutes)/14.4).toString() + "%"
     txtmr.innerHTML = (24-hours).toString() + " Hours Left"
 }
+
+let start = false
+
+startbtn.addEventListener('click', function(){
+    startbtn.style.scale = 0.08;
+    startbtn.style.top = "-6vh";
+    startbtn.style.backgroundColor = "#DEDEDE"
+    startbtn.style.border = "0.5rem #DEDEDE solid"
+    console.log(startbtn.style.scale)
+})
 
 setInterval(() => {
     updateMin()

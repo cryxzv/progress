@@ -95,7 +95,7 @@ body{
     position: relative;
     font-family: 'Manrope';
     font-weight: 200;
-    color: #FFFFFF;
+    color: #DEDEDE;
     font-size: 1rem;
     top: 5.05rem;
 }
@@ -111,7 +111,7 @@ body{
     position: relative;
     font-family: 'Manrope';
     font-weight: 200;
-    color: #FFFFFF;
+    color: #DEDEDE;
     font-size: 1rem;
     top: -1.3rem;
 }
@@ -125,13 +125,27 @@ body{
 }
 
 #start{
-    position: absolute;
     top: 20vh;
     width: 20vmin;
     height: 20vmin;
     background-color: #8a8a8a;
     position: relative;
     transform: rotate(45deg);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    background-clip: content-box;
+    border: 0.25rem solid #8a8a8a;
+    scale: 1;
+    transition: scale 2s ease-in, top 2s ease-in, border 2s ease-in, background-color 2s ease-in;
+}
+
+#line{
+    position: relative;
+    top: -18.2vh;
+    width: 50vw;
+    height: 0.1rem;
+    background-color: #DEDEDE;
     margin-left: auto;
     margin-right: auto;
 }

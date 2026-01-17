@@ -14,7 +14,7 @@ body{
 }
 
 #title{
-    top: 2rem;
+    margin: 20px 0px;
     font-family: 'Manrope';
     font-style: normal;
     font-weight: 300;
@@ -50,13 +50,15 @@ body{
 }
 
 .container-event{
+    display: flex;
+    flex-direction: column;
     position: relative;
     z-index: 2;
 }
 
 .container-bar{
     color: white;
-    margin-top: 50px;
+    margin: 10px 0px;
     display: inline-flex;
     align-items: center;
     width: 100%;

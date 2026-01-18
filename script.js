@@ -1,5 +1,5 @@
-main = document.querySelector(".bar-contain")
-main.style.display = 'none'
+// main = document.querySelector(".bar-contain")
+// main.style.display = 'none'
 
 bar1 = document.querySelectorAll(".comp-bar")
 console.log(bar1)

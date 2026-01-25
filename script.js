@@ -19,6 +19,8 @@ let txmon = textR[3]
 let txchr = textR[4]
 let txapr = textR[5]
 let txleap = textR[6]
+let txHailey = textR[7]
+let txUniverse = textR[8]
 let startbtn = document.getElementById("start")
 
 function updateMin(d){    
@@ -106,6 +108,47 @@ function updateLeap(d){
 //     console.log(startbtn.style.scale)
 // })
 
+const HALLEY_LAST_RETURN = new Date('1986-02-09T00:00:00Z');
+const HALLEY_ORBIT_YEARS = 75.32; // average orbital period
+function updateHalley(d) {
+    const nextReturn = getNextHalleyReturn(d);
+
+    const diffMs = nextReturn - d;
+    const daysLeft = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+
+    txHailey.innerHTML = `${daysLeft} Days Left`;
+}
+
+function getNextHalleyReturn(now) {
+    let returnDate = new Date(HALLEY_LAST_RETURN);
+
+    while (returnDate <= now) {
+        returnDate = new Date(
+            returnDate.getTime() +
+            HALLEY_ORBIT_YEARS * 365.25 * 24 * 60 * 60 * 1000
+        );
+    }
+
+    return returnDate;
+}
+
+const UNIVERSE_DEATH_YEARS = 1e100;
+const DAYS_PER_YEAR = 365.25;
+const TOTAL_UNIVERSE_DAYS = UNIVERSE_DEATH_YEARS * DAYS_PER_YEAR;
+
+const UNIVERSE_START_MS = Date.now();
+
+function updateUniverseDeath(d) {
+    const elapsedMs = d.getTime() - UNIVERSE_START_MS;
+    const elapsedDays = elapsedMs / 86400000;
+
+    const remainingDays = TOTAL_UNIVERSE_DAYS - elapsedDays;
+
+    const logDays = Math.log10(remainingDays).toFixed(2);
+
+    txUniverse.innerHTML = `~10<sup>${logDays}</sup> Days Left`;
+}
+
 setInterval(() => {
     const d = new Date();
     updateMin(d)
@@ -115,4 +158,6 @@ setInterval(() => {
     updateChr(d)
     updateApr()
     updateLeap(d)
+    updateHalley(d)
+    updateUniverseDeath(d)
 }, 1000);
